@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_parser_json/domain/dog.dart';
 import 'package:flutter_parser_json/pages/filhotes_page.dart';
-import 'package:flutter_parser_json/utils/alert.dart';
 import 'package:flutter_parser_json/utils/nav.dart';
 
 class DogsPage extends StatelessWidget {
