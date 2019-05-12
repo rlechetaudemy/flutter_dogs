@@ -2,33 +2,6 @@ import 'dart:convert' as convert;
 
 import 'package:flutter/services.dart';
 
-class Informacao {
-  String dataAula;
-  int qtdeAlunos;
-
-  Informacao.fromJson(Map<String, dynamic> json)
-      : dataAula = json["dataAula"],
-        qtdeAlunos = json["qtdeAlunos"];
-
-  @override
-  String toString() {
-    return 'Informacao{dataAula: $dataAula, qtdeAlunos: $qtdeAlunos}';
-  }
-}
-
-class DogResponse {
-  Informacao informacao;
-  List<Dog> dogs;
-
-  DogResponse.fromJson(Map<String, dynamic> json)
-      : informacao = json["informacoes"] != null
-            ? Informacao.fromJson(json["informacoes"])
-            : null,
-        dogs = json["dogs"] != null
-            ? json["dogs"].map<Dog>((json) => Dog.fromJson(json)).toList()
-            : null;
-}
-
 class Dog {
   final String nome;
   final String foto;
@@ -49,7 +22,7 @@ class Dog {
 }
 
 class DogService {
-  static Future<DogResponse> getDogs() async {
+  static Future<List<Dog>> getDogs() async {
     try {
       await Future.delayed(Duration(seconds: 1));
 
@@ -57,9 +30,25 @@ class DogService {
 
       final map = convert.json.decode(json);
 
-      DogResponse response = DogResponse.fromJson(map);
+      String data = map["dataAula"];
+      print("Data: $data");
 
-      return response;
+      int qtdeAlunos = map["qtdeAlunos"];
+      print("Qtde Alunos: $qtdeAlunos");
+
+      final lista = map["dogs"];
+
+      final dogs = lista.map<Dog>((json) => Dog.fromJson(json)).toList();
+
+//      List<Dog> dogs2 = List<Dog>();
+//      for(final dog in dogs) {
+//        dogs2.add(dog);
+//        dogs2.addAll(dog.filhotes);
+//      }]
+
+      print("Dogs $dogs");
+
+      return dogs;
     } catch (error) {
       print(error);
     }

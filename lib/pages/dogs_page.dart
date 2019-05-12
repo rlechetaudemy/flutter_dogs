@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_parser_json/domain/dog.dart';
-import 'package:flutter_parser_json/pages/filhotes_page.dart';
 import 'package:flutter_parser_json/utils/alert.dart';
-import 'package:flutter_parser_json/utils/nav.dart';
 
 class DogsPage extends StatelessWidget {
   @override
@@ -15,8 +13,8 @@ class DogsPage extends StatelessWidget {
   }
 
   _body() {
-    Future<DogResponse> future = DogService.getDogs();
-    return FutureBuilder<DogResponse>(
+    Future<List<Dog>> future = DogService.getDogs();
+    return FutureBuilder<List<Dog>>(
       future: future,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
@@ -24,14 +22,10 @@ class DogsPage extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         }
-        DogResponse response = snapshot.data;
-        List<Dog> dogs = response.dogs;
+        List<Dog> dogs = snapshot.data;
         return Column(
           children: <Widget>[
-            header(response.informacao),
-            Divider(
-              height: 40,
-            ),
+            _header(),
             Expanded(
               child: _listView(context, dogs),
             )
@@ -76,23 +70,21 @@ class DogsPage extends StatelessWidget {
 
   _onClickDog(context, Dog dog) {
     print("Dog >>> ${dog.nome}");
-    //alert(context, "Dog", dog.nome);
-
-    push(context, FilhotesPage(dog));
+    alert(context, "Dog", dog.nome);
   }
 
-  header(Informacao informacao) {
+  _header() {
     return Column(
       children: <Widget>[
         Text(
-          "Data da aula ${informacao.dataAula}",
+          "Data da aula ???",
           style: TextStyle(
             fontSize: 28,
             color: Colors.blue,
           ),
         ),
         Text(
-          "Qtde alunos ${informacao.qtdeAlunos}",
+          "Qtde alunos ???",
           style: TextStyle(
             fontSize: 28,
             color: Colors.blue,
