@@ -28,7 +28,7 @@ class DogsPage extends StatelessWidget {
         List<Dog> dogs = response.dogs;
         return Column(
           children: <Widget>[
-            header(response.informacao),
+            _header(response.informacao),
             Divider(
               height: 40,
             ),
@@ -40,7 +40,28 @@ class DogsPage extends StatelessWidget {
       },
     );
   }
-
+  
+  _header(Informacao informacao) {
+    return Column(
+      children: <Widget>[
+        Text(
+          "Data da aula ${informacao.dataAula}",
+          style: TextStyle(
+            fontSize: 28,
+            color: Colors.blue,
+          ),
+        ),
+        Text(
+          "Qtde alunos ${informacao.qtdeAlunos}",
+          style: TextStyle(
+            fontSize: 28,
+            color: Colors.blue,
+          ),
+        )
+      ],
+    );
+  }
+  
   _listView(context, List<Dog> dogs) {
     return ListView.builder(
       itemCount: dogs.length,
@@ -79,26 +100,5 @@ class DogsPage extends StatelessWidget {
     //alert(context, "Dog", dog.nome);
 
     push(context, FilhotesPage(dog));
-  }
-
-  header(Informacao informacao) {
-    return Column(
-      children: <Widget>[
-        Text(
-          "Data da aula ${informacao.dataAula}",
-          style: TextStyle(
-            fontSize: 28,
-            color: Colors.blue,
-          ),
-        ),
-        Text(
-          "Qtde alunos ${informacao.qtdeAlunos}",
-          style: TextStyle(
-            fontSize: 28,
-            color: Colors.blue,
-          ),
-        )
-      ],
-    );
   }
 }
