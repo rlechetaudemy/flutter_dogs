@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_parser_json/domain/dog.dart';
-import 'package:flutter_parser_json/pages/filhotes_page.dart';
 import 'package:flutter_parser_json/utils/alert.dart';
-import 'package:flutter_parser_json/utils/nav.dart';
 
 class DogsPage extends StatelessWidget {
   @override
@@ -76,9 +74,7 @@ class DogsPage extends StatelessWidget {
 
   _onClickDog(context, Dog dog) {
     print("Dog >>> ${dog.nome}");
-    //alert(context, "Dog", dog.nome);
-
-    push(context, FilhotesPage(dog));
+    alert(context, "Dog", dog.nome);
   }
 
   header(Informacao informacao) {
