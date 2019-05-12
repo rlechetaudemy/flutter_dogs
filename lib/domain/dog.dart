@@ -30,10 +30,10 @@ class DogService {
 
       final map = convert.json.decode(json);
 
-      String data = map["dataAula"];
+      String data = map["informacoes"]["dataAula"];
       print("Data: $data");
 
-      int qtdeAlunos = map["qtdeAlunos"];
+      int qtdeAlunos = map["informacoes"]["qtdeAlunos"];
       print("Qtde Alunos: $qtdeAlunos");
 
       final lista = map["dogs"];
