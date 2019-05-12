@@ -1,0 +1,62 @@
+{
+  "informacoes" : {
+    "dataAula": "11/05/2019",
+    "qtdeAlunos": 100
+  },
+  "dogs" : [
+    {
+      "nome": "Buldogue",
+      "foto": "buldogue.jpg",
+      "filhotes" : [
+        {
+          "nome": "Buldoguezinho 1",
+          "foto": "buldogue_filhote1.jpg"
+        },
+        {
+          "nome": "Buldoguezinho 2",
+          "foto": "buldogue_filhote2.jpg"
+        },
+        {
+          "nome": "Buldoguezinho 3",
+          "foto": "buldogue_filhote3.jpg"
+        }
+      ]
+    },
+    {
+      "nome": "Labrador",
+      "foto": "labrador.jpg",
+      "filhotes" : [
+        {
+          "nome": "Labradorzinho 1",
+          "foto": "labrador_filhote1.jpg"
+        },
+        {
+          "nome": "Labradorzinho 2",
+          "foto": "labrador_filhote2.jpg"
+        },
+        {
+          "nome": "Labradorzinho 3",
+          "foto": "labrador_filhote3.jpg"
+        }
+      ]
+    },
+    {
+      "nome": "Pastor",
+      "foto": "pastor.jpg",
+      "filhotes" : [
+        {
+          "nome": "Pastorzinho 1",
+          "foto": "pastor_filhote1.jpg"
+        },
+        {
+          "nome": "Pastorzinho 2",
+          "foto": "pastor_filhote2.jpg"
+        },
+        {
+          "nome": "Pastorzinho 3",
+          "foto": "pastor_filhote3.jpg"
+        }
+      ]
+    }
+  ]
+}
