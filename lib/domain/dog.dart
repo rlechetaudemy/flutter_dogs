@@ -2,6 +2,19 @@ import 'dart:convert' as convert;
 
 import 'package:flutter/services.dart';
 
+class DogResponse {
+  Informacao informacao;
+  List<Dog> dogs;
+
+  DogResponse.fromJson(Map<String, dynamic> json)
+      : informacao = json["informacoes"] != null
+      ? Informacao.fromJson(json["informacoes"])
+      : null,
+        dogs = json["dogs"] != null
+            ? json["dogs"].map<Dog>((json) => Dog.fromJson(json)).toList()
+            : null;
+}
+
 class Informacao {
   String dataAula;
   int qtdeAlunos;
@@ -14,19 +27,6 @@ class Informacao {
   String toString() {
     return 'Informacao{dataAula: $dataAula, qtdeAlunos: $qtdeAlunos}';
   }
-}
-
-class DogResponse {
-  Informacao informacao;
-  List<Dog> dogs;
-
-  DogResponse.fromJson(Map<String, dynamic> json)
-      : informacao = json["informacoes"] != null
-            ? Informacao.fromJson(json["informacoes"])
-            : null,
-        dogs = json["dogs"] != null
-            ? json["dogs"].map<Dog>((json) => Dog.fromJson(json)).toList()
-            : null;
 }
 
 class Dog {
