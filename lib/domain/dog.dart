@@ -62,6 +62,7 @@ class DogService {
       return response;
     } catch (error) {
       print(error);
+      return null;
     }
   }
 }

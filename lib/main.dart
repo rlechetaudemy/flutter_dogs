@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_parser_json/pages/dogs_page.dart';
 import 'package:flutter_parser_json/pages/splash_page.dart';
 import 'package:flutter_parser_json/utils/appbar_utils.dart';
 
