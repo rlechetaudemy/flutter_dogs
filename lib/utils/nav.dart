@@ -6,3 +6,9 @@ push(BuildContext context,Widget page) {
       builder: (context) => page
   ));
 }
+
+pushReplacement(BuildContext context,Widget page) {
+  return Navigator.pushReplacement(context, MaterialPageRoute(
+      builder: (context) => page
+  ));
+}
